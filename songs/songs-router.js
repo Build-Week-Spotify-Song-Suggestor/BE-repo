@@ -2,6 +2,19 @@ const axios = require('axios');
 
 const router = require('express').Router();
 
-//router.get('/', (req,res) => {
-// Data science will provide api endpoint to connect to with an axios call here.
-// }
+router.get('/', (req, res) => {
+    const requestOptions = {
+        headers: { accept: 'application/json' },
+    };
+
+    axios
+        .get('https://build-week-api.herokuapp.com/df/2ilEcXWaZLryNVlmH7JQTu', requestOptions)
+        .then(response => {
+            res.status(200).json(response.data.results);
+        })
+        .catch(err => {
+            res.status(500).json({ message: 'Error Fetching Songs', error: err });
+        });
+});
+
+module.exports = router;

@@ -7,6 +7,7 @@ exports.up = function(knex) {
             .notNullable()
             .unique();
         users.string('password', 255).notNullable();
+        users.integer('song_id').unsigned().references('id').inTable('songs').onUpdate('CASCADE').onDelete('CASCADE')
     });
 };
 

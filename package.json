@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch",
-    "server": "nodemon index.js",
+    "test": "cross-env DB_ENV=testing jest --watch",
+    "server": "cross-env NODE_ENV=dev nodemon index.js",
     "start": "node index.js"
   },
   "jest": {
@@ -14,6 +14,8 @@
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.1",
+    "crossenv": "0.0.2-security",
     "express": "^4.17.1",
     "helmet": "^3.21.3",
     "jest": "^25.1.0",

@@ -1,6 +1,7 @@
 
 exports.up = function(knex) {
   return knex.schema.createTable('songs', tbl => {
+      tbl.increments();
       tbl.float('acousticness');
       tbl.string('artist');
       tbl.float('danceability');
@@ -19,7 +20,6 @@ exports.up = function(knex) {
       tbl.string('track_id').notNullable().unique();
       tbl.string('track_name').notNullable().unique();
       tbl.float('valence');
-      tbl.integer('user_id').unsigned().references('id').inTable('songs').onUpdate('CASCADE').onDelete('CASCADE')
   })
 };
 

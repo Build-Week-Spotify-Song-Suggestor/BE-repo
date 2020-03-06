@@ -7,7 +7,6 @@ exports.up = function(knex) {
       tbl.float('danceability');
       tbl.float('duration_ms');
       tbl.float('energy');
-      tbl.float('id');
       tbl.float('instrumentalness');
       tbl.float('key');
       tbl.float('liveness');

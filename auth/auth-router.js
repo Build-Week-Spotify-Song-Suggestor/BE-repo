@@ -2,7 +2,7 @@ const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const Users = require('../users/user-model');
 const jwt = require('jsonwebtoken');
-const jwtSecret = require('../config/secrets');
+const {jwtSecret} = require('../config/secrets');
 
 router.post('/register', (req, res) => {
     const user = req.body;
@@ -20,7 +20,7 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-    let { username, password } = req.header;
+    let { username, password } = req.body;
 
     Users.findBy({ username })
         .first()

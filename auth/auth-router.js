@@ -13,6 +13,10 @@ router.post('/register', (req, res) => {
         .then(saved => {
             res.status(201).json(saved);
         })
+        .catch(error => {
+            console.log("ERROR: ", error);
+            res.status(500).json({ error: "/login error" });
+    });
 });
 
 router.post('/login', (req, res) => {

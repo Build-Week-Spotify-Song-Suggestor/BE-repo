@@ -4,6 +4,7 @@ const helmet = require('helmet');
 
 const authenticate = require('../auth/auth-middleware.js');
 const authRouter = require('../auth/auth-router.js');
+const SongRouter = require('../songs/songs-router');
 
 const server = express();
 
@@ -12,9 +13,8 @@ server.use(cors());
 server.use(express.json());
 
 server.use('/api/auth', authRouter);
-// server.use('/api/"data access point', authenticate, checkRole('user'), SongRouter);
-//Data Science will provide api access to song database
-//Talk with React to get what other endpoints they need
+server.use('/api/songs', SongRouter);
+
 
 module.exports = server;
 

@@ -19,6 +19,7 @@ exports.up = function(knex) {
       tbl.string('track_id').notNullable().unique();
       tbl.string('track_name').notNullable().unique();
       tbl.float('valence');
+      tbl.integer('user_id').unsigned().references('id').inTable('songs').onUpdate('CASCADE').onDelete('CASCADE')
   })
 };
 
